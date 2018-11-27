@@ -6,11 +6,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ItemComponent } from './item/item.component';
+import { HighlightPriceDirective } from './highlight-price.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ItemComponent
+    ItemComponent,
+    HighlightPriceDirective
   ],
   imports: [
     BrowserModule,

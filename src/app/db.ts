@@ -2,60 +2,6 @@ import { Item } from './item';
 
 export const db: Item[] = [
     {
-        '_id': '5bd65c4c13eac506f89575c6',
-        'updateTime': 1540774886000,
-        'href': 'https://api.slice.com/api/v1/items/5207628689611246992',
-        'description': 'Wear Everywhere Super Push-Up Cocoa Powder (ATY) 32AA',
-        'productCode': 'ER-380-753',
-        'purchaseDate': '2018-10-29T00:00:00Z',
-        'price': 1000.0,
-        'quantity': 1,
-        'productUrl': 'https://www.victoriassecret.com/search#/search?q=ER-380-753',
-        'imageUrl': 'https://www.slice.com/productimage/543623972685611136',
-        'imageWidth': null,
-        'imageHeight': null,
-        'returnByDate': '2019-01-27T00:00:00Z',
-        'category': {
-            'href': 'https://api.slice.com/api/v1/categories/5',
-            'name': 'Apparel & Accessories'
-        },
-        'parsingConfidence': 100,
-        'returend': false,
-        'order': {
-            'href': 'https://api.slice.com/api/v1/orders/-1546407081312348587'
-        },
-        'shipments': [],
-        'orderEmails': [
-            {
-                'href': 'https://api.slice.com/api/v1/emails/-3008892449275056712'
-            }
-        ],
-        'shipmentEmails': [],
-        'priceHistory': [],
-        'merchantData': {
-            '_id': '000000000000000000000000',
-            'updateTime': 1536302079000,
-            'createTime': 1285891200000,
-            'hidden': false,
-            'name': 'Victoria Secret',
-            'logoUrl': 'https://djcgg0wrlysb3.cloudfront.net/images/logos/280px/logoVictoriasSecret.png',
-            'serviceFormUrl': '',
-            'servicePhoneNumber': '1-800-411-5116',
-            'priceDropPolicyUrl': '',
-            'returnPolicyUrl': 'https://customerservice.victoriassecret.com/app/answers/detail/a_id/35',
-            'websiteUrl': 'http://www.victoriassecret.com',
-            'editable': false,
-            'supportsPriceDrop': false,
-            'href': 'https://api.slice.com/api/v1/merchants/22',
-            'serviceEmail': 'customercare@victoriassecret.com'
-        },
-        'userName': 'rD4ZnbpYDXfzAYfPT8PzTKw7Inj1',
-        'userFullName': 'Izzy Reeves',
-        'userImageUrl': 'http://www.expogeorgia.ge/wp-content/uploads/2015/09/anonymous-user.png',
-        'fashbashId': '12441e53-c27b-4e87-9645-71eb6f263883',
-        'productVisibility': true
-    },
-    {
         '_id': '5bd65c4c13eac506f89575c7',
         'updateTime': 1540774886000,
         'href': 'https://api.slice.com/api/v1/items/7528307015788437834',

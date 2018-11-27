@@ -1,11 +1,11 @@
-<div class="item">
+<div class="item" [ngClass]="{'red': existInCart}" >
     <div class="title">
         {{itemInput.description}}
     </div>
     <div class="img">
         <img [src]="itemInput.imageUrl">
     </div>
-    <div class="price">
+    <div class="price" appHighlightPrice [color]="itemInput.price > 1000 ? 'yellow' : 'green'">
         {{itemInput.price}}$
     </div>
 
