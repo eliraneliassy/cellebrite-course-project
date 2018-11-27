@@ -9,11 +9,11 @@
         {{itemInput.price}}$
     </div>
 
-    <button (click)="onAddToCart(itemInput)"
+    <button (click)="onAddToCart()"
      *ngIf="!existInCart(itemInput); else elseBlock">Add To Cart</button>
 
     <ng-template #elseBlock>
-        <button (click)="onRemoveFromCart(itemInput)">Remove From</button>
+        <button (click)="onRemoveFromCart()">Remove From</button>
     </ng-template>
 
 

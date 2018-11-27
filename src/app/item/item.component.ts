@@ -8,7 +8,7 @@ import { Item } from '../item';
 })
 export class ItemComponent implements OnInit {
 
-  @Input() item: Item;
+  @Input() itemInput: Item;
   @Input() existInCart: boolean;
   @Output() addToCart: EventEmitter<Item> = new EventEmitter<Item>();
   @Output() removeFromCart: EventEmitter<Item> = new EventEmitter<Item>();
@@ -17,12 +17,12 @@ export class ItemComponent implements OnInit {
   ngOnInit() {
   }
 
-  onAddToCart(item: Item) {
-    this.addToCart.emit(item);
+  onAddToCart() {
+    this.addToCart.emit(this.itemInput);
   }
 
   onRemoveFromCart() {
-    this.removeFromCart.emit(this.item);
+    this.removeFromCart.emit(this.itemInput);
   }
 
 
