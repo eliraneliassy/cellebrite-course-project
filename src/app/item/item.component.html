@@ -10,7 +10,7 @@
     </div>
 
     <button (click)="onAddToCart()"
-     *ngIf="!existInCart(itemInput); else elseBlock">Add To Cart</button>
+     *ngIf="!existInCart; else elseBlock">Add To Cart</button>
 
     <ng-template #elseBlock>
         <button (click)="onRemoveFromCart()">Remove From</button>

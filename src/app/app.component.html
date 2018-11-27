@@ -1,7 +1,7 @@
 <div class="shopping-cart">
     My Shopping cart:
     <div *ngFor="let item of shoppingCart">
-        <app-item [item]="item" [existInCart]="existInCart(item)"></app-item>
+        <app-item [itemInput]="item" [existInCart]="existInCart(item)"></app-item>
     </div>
 
 </div>
