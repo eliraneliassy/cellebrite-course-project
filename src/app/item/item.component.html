@@ -1,0 +1,20 @@
+<div class="item">
+    <div class="title">
+        {{itemInput.description}}
+    </div>
+    <div class="img">
+        <img [src]="itemInput.imageUrl">
+    </div>
+    <div class="price">
+        {{itemInput.price}}$
+    </div>
+
+    <button (click)="onAddToCart(itemInput)"
+     *ngIf="!existInCart(itemInput); else elseBlock">Add To Cart</button>
+
+    <ng-template #elseBlock>
+        <button (click)="onRemoveFromCart(itemInput)">Remove From</button>
+    </ng-template>
+
+
+</div>
