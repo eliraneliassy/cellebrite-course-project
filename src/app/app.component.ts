@@ -1,12 +1,13 @@
 
 
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Item } from './item';
 
 
 
 import { db } from './db';
+import { ShoppingCartService } from './services/shopping-cart.service';
 
 export class Item2 {
   title: string;
@@ -20,29 +21,34 @@ export class Item2 {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+
 
   items: Item[] = [];
+  shoppingCart: Item[];
 
-  shoppingCart: Item[] = [];
-
-  constructor() {
+  constructor(private shoppingCartService: ShoppingCartService) {
     this.items = db;
   }
 
+  ngOnInit(): void {
+    this.shoppingCart = this.shoppingCartService.items;
+  }
+
   addToCart(item) {
-    this.shoppingCart.push(item);
+    this.shoppingCartService.addToCart(item);
   }
 
   removeFromCart(item: Item) {
-    const index = this.shoppingCart.indexOf(item);
-    if (index > -1) {
-      this.shoppingCart.splice(index, 1);
-    }
+    this.shoppingCartService.removeFromCart(item);
   }
 
   existInCart(item: Item): boolean {
-    return this.shoppingCart.includes(item);
+    return this.shoppingCartService.existInCart(item);
+  }
+
+  clearAll() {
+    this.shoppingCartService.clearCart();
   }
 
 
