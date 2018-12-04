@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { ItemComponent } from './item/item.component';
 import { HighlightPriceDirective } from './directives/highlight-price.directive';
 import { InfinteScrollDirective } from './directives/infinte-scroll.directive';
+import { DiscountPipe } from './pipes/discount.pipe';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { InfinteScrollDirective } from './directives/infinte-scroll.directive';
     AppComponent,
     ItemComponent,
     HighlightPriceDirective,
-    InfinteScrollDirective
+    InfinteScrollDirective,
+    DiscountPipe
   ],
   imports: [
     BrowserModule,

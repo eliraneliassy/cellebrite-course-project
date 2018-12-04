@@ -1,21 +1,27 @@
-<div class="item" [ngClass]="{'red': existInCart}" >
-    {{itemInput | json}}
+<div class="item" [ngClass]="{'red': existInCart}">
     <div class="title">
         {{itemInput.description}}
     </div>
     <div class="img">
         <img [src]="itemInput.imageUrl">
     </div>
-    <div class="price" appHighlightPrice [color]="itemInput.price > 1000 ? 'yellow' : 'green'">
-        {{itemInput.price | currency}}
+    <div class="price">
+        <span style="text-decoration: line-through; margin-right: 15px;"
+        *ngIf="itemInput.price >= 1000">
+            {{itemInput.price | currency}}
+        </span>
+        <span >
+            {{itemInput.price | discount | currency}}
+        </span>
+
     </div>
+
 
     <div class="purchaseDate">
         {{itemInput.purchaseDate | date:'short'}}
     </div>
 
-    <button (click)="onAddToCart()"
-     *ngIf="!existInCart; else elseBlock">Add To Cart</button>
+    <button (click)="onAddToCart()" *ngIf="!existInCart; else elseBlock">Add To Cart</button>
 
     <ng-template #elseBlock>
         <button (click)="onRemoveFromCart()">Remove From Cart</button>
