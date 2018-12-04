@@ -2,13 +2,15 @@ import { ProductsService } from './services/products.service';
 
 
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Item } from './item';
 
 
 
 import { db } from './db';
 import { ShoppingCartService } from './services/shopping-cart.service';
+import { User, AuthService } from './services/auth.service';
+import { Subscription, Observable } from 'rxjs';
 
 export class Item2 {
   title: string;
@@ -22,16 +24,23 @@ export class Item2 {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
+
 
 
   items: Item[] = [];
   shoppingCart: Item[];
   isLoading: boolean;
   page = 0;
+  user: User;
+
+  userObs: Observable<User>;
+
+  authSubscription: Subscription;
 
   constructor(private shoppingCartService: ShoppingCartService,
-    private productService: ProductsService) {
+    private productService: ProductsService,
+    private authService: AuthService) {
   }
 
   ngOnInit(): void {
@@ -40,6 +49,13 @@ export class AppComponent implements OnInit {
       .subscribe((items: Item[]) => {
         this.items = items;
       });
+
+    this.authSubscription = this.authService.getUser()
+      .subscribe((user: User) => this.user = user);
+
+    this.userObs = this.authService.getUser();
+
+
   }
 
   addToCart(item) {
@@ -68,6 +84,14 @@ export class AppComponent implements OnInit {
           this.isLoading = false;
         }, 500);
       });
+  }
+
+  login() {
+    this.authService.login('asdas@asd.com', 'asdasd');
+  }
+
+  ngOnDestroy(): void {
+    this.authSubscription.unsubscribe();
   }
 
 

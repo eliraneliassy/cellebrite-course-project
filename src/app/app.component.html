@@ -5,6 +5,13 @@
     </div>
 </div> -->
 
+<div *ngIf="user">
+    <!-- Hello {{user.userName}} -->
+    Hello {{(userObs | async).userName}}
+</div>
+
+<button (click)="login()">Login</button>
+
 <hr>
 
 <div class="item" *ngFor="let item of items" 
