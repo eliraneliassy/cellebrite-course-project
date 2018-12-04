@@ -10,7 +10,8 @@ import { Item } from './item';
 import { db } from './db';
 import { ShoppingCartService } from './services/shopping-cart.service';
 import { User, AuthService } from './services/auth.service';
-import { Subscription, Observable } from 'rxjs';
+import { Subscription, Observable, Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged, filter } from 'rxjs/operators';
 
 export class Item2 {
   title: string;
@@ -38,6 +39,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
   authSubscription: Subscription;
 
+  searchTerm: Subject<string> = new Subject();
+
   constructor(private shoppingCartService: ShoppingCartService,
     private productService: ProductsService,
     private authService: AuthService) {
@@ -54,6 +57,15 @@ export class AppComponent implements OnInit, OnDestroy {
       .subscribe((user: User) => this.user = user);
 
     this.userObs = this.authService.getUser();
+
+    this.searchTerm
+      .pipe(
+        debounceTime(300),
+        distinctUntilChanged(),
+        filter((term) => term !== '')
+      )
+      .subscribe((term) =>
+        console.log(term));
 
 
   }
@@ -88,6 +100,10 @@ export class AppComponent implements OnInit, OnDestroy {
 
   login() {
     this.authService.login('asdas@asd.com', 'asdasd');
+  }
+
+  getSuggestion(term) {
+    this.searchTerm.next(term);
   }
 
   ngOnDestroy(): void {
