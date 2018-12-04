@@ -1,3 +1,4 @@
+import { ProductsService } from './services/products.service';
 
 
 
@@ -26,13 +27,19 @@ export class AppComponent implements OnInit {
 
   items: Item[] = [];
   shoppingCart: Item[];
+  isLoading: boolean;
+  page = 0;
 
-  constructor(private shoppingCartService: ShoppingCartService) {
-    this.items = db;
+  constructor(private shoppingCartService: ShoppingCartService,
+    private productService: ProductsService) {
   }
 
   ngOnInit(): void {
     this.shoppingCart = this.shoppingCartService.items;
+    this.productService.getItems(this.page)
+      .subscribe((items: Item[]) => {
+        this.items = items;
+      });
   }
 
   addToCart(item) {
@@ -49,6 +56,18 @@ export class AppComponent implements OnInit {
 
   clearAll() {
     this.shoppingCartService.clearCart();
+  }
+
+  loadMore() {
+    this.page++;
+    this.isLoading = true;
+    this.productService.getItems(this.page)
+      .subscribe((newItems: Item[]) => {
+        this.items = [...this.items, ...newItems];
+        setTimeout(() => {
+          this.isLoading = false;
+        }, 500);
+      });
   }
 
 

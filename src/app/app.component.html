@@ -1,14 +1,14 @@
-<div class="shopping-cart">
+<!-- <div class="shopping-cart" >
     My Shopping cart:
     <div *ngFor="let item of shoppingCart">
         <app-item [itemInput]="item" [existInCart]="existInCart(item)"></app-item>
     </div>
-
-</div>
+</div> -->
 
 <hr>
 
-<div class="item" *ngFor="let item of items">
+<div class="item" *ngFor="let item of items" 
+appInfinteScroll (bottomReached)="loadMore()" [isLoading]="isLoading">
     <app-item [itemInput]="item" 
     (addToCart)="addToCart($event)"
     (removeFromCart)="removeFromCart($event)"

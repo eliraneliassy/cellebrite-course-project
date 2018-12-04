@@ -9,9 +9,7 @@ import { Item } from '../item';
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.scss']
 })
-export class ItemComponent implements OnInit, OnChanges, OnDestroy
-  , AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit,
-  DoCheck {
+export class ItemComponent implements OnInit {
 
 
   @Input() itemInput: Item;
@@ -31,29 +29,29 @@ export class ItemComponent implements OnInit, OnChanges, OnDestroy
     this.removeFromCart.emit(this.itemInput);
   }
 
-  ngDoCheck(): void {
-    console.log('ng do check');
-  }
-  ngAfterViewInit(): void {
-    console.log('ng after view init');
-  }
-  ngAfterViewChecked(): void {
-    console.log('ng after view checked');
-  }
-  ngAfterContentInit(): void {
-    console.log('ng After content Init');
-  }
-  ngAfterContentChecked(): void {
-    console.log('ng after cotent checked');
-  }
+  // ngDoCheck(): void {
+  //   console.log('ng do check');
+  // }
+  // ngAfterViewInit(): void {
+  //   console.log('ng after view init');
+  // }
+  // ngAfterViewChecked(): void {
+  //   console.log('ng after view checked');
+  // }
+  // ngAfterContentInit(): void {
+  //   console.log('ng After content Init');
+  // }
+  // ngAfterContentChecked(): void {
+  //   console.log('ng after cotent checked');
+  // }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
-  }
+  // ngOnChanges(changes: SimpleChanges): void {
+  //   console.log(changes);
+  // }
 
-  ngOnDestroy(): void {
-    console.log('on destroy');
-  }
+  // ngOnDestroy(): void {
+  //   console.log('on destroy');
+  // }
 
 
 

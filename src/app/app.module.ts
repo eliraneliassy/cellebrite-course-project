@@ -6,13 +6,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ItemComponent } from './item/item.component';
-import { HighlightPriceDirective } from './highlight-price.directive';
+import { HighlightPriceDirective } from './directives/highlight-price.directive';
+import { InfinteScrollDirective } from './directives/infinte-scroll.directive';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemComponent,
-    HighlightPriceDirective
+    HighlightPriceDirective,
+    InfinteScrollDirective
   ],
   imports: [
     BrowserModule,
