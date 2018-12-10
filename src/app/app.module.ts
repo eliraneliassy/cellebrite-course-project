@@ -12,6 +12,7 @@ import { DiscountPipe } from './pipes/discount.pipe';
 import { HomeComponent } from './components/home/home.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { HeaderComponent } from './components/header/header.component';
+import { CartComponent } from './components/cart/cart.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { HeaderComponent } from './components/header/header.component';
     DiscountPipe,
     HomeComponent,
     FeedComponent,
-    HeaderComponent
+    HeaderComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
