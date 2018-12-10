@@ -31,10 +31,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
 
   shoppingCart: Item[];
-  
-  user: User;
 
-  userObs: Observable<User>;
+
 
   authSubscription: Subscription;
 
@@ -47,12 +45,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.shoppingCart = this.shoppingCartService.items;
-    
-
-    this.authSubscription = this.authService.getUser()
-      .subscribe((user: User) => this.user = user);
-
-    this.userObs = this.authService.getUser();
 
     this.searchTerm
       .pipe(
@@ -66,13 +58,13 @@ export class AppComponent implements OnInit, OnDestroy {
 
   }
 
-  
+
 
   clearAll() {
     this.shoppingCartService.clearCart();
   }
 
-  
+
 
   login() {
     this.authService.login('asdas@asd.com', 'asdasd');

@@ -1,5 +1,8 @@
+import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/services/auth.service';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +11,19 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  user: User;
+
+  userObs: Observable<User>;
+  authSubscription: Subscription;
+
+  constructor(private router: Router,
+    private authService: AuthService ) { }
 
   ngOnInit() {
+    this.authSubscription = this.authService.getUser()
+      .subscribe((user: User) => this.user = user);
+
+    this.userObs = this.authService.getUser();
   }
 
   goToFeed() {

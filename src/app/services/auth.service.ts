@@ -12,6 +12,7 @@ export interface User {
 export class AuthService {
 
   private user: BehaviorSubject<User> = new BehaviorSubject(null);
+  isAuth = false;
   constructor() { }
 
   login(email: string, password: string) {
@@ -22,6 +23,7 @@ export class AuthService {
     };
 
     this.user.next(newUser);
+    this.isAuth = true;
   }
 
   getUser(): Observable<User> {
