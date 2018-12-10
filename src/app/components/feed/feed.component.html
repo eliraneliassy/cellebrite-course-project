@@ -1,0 +1,8 @@
+<div class="item" *ngFor="let item of items" 
+appInfinteScroll (bottomReached)="loadMore()" [isLoading]="isLoading">
+    <app-item [itemInput]="item" 
+    (addToCart)="addToCart($event)"
+    (removeFromCart)="removeFromCart($event)"
+    [existInCart]="existInCart(item)"></app-item>
+  
+</div>

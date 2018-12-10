@@ -5,6 +5,8 @@
     </div>
 </div> -->
 
+<app-header></app-header>
+
 <div>
     <input type="text" (input)="getSuggestion($event.target.value)">
 </div>
@@ -18,12 +20,4 @@
 
 <hr>
 
-<div class="item" *ngFor="let item of items" 
-appInfinteScroll (bottomReached)="loadMore()" [isLoading]="isLoading">
-    <app-item [itemInput]="item" 
-    (addToCart)="addToCart($event)"
-    (removeFromCart)="removeFromCart($event)"
-    [existInCart]="existInCart(item)"></app-item>
-    
-
-</div>
+<router-outlet></router-outlet>

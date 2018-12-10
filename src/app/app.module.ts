@@ -9,6 +9,9 @@ import { ItemComponent } from './item/item.component';
 import { HighlightPriceDirective } from './directives/highlight-price.directive';
 import { InfinteScrollDirective } from './directives/infinte-scroll.directive';
 import { DiscountPipe } from './pipes/discount.pipe';
+import { HomeComponent } from './components/home/home.component';
+import { FeedComponent } from './components/feed/feed.component';
+import { HeaderComponent } from './components/header/header.component';
 
 
 @NgModule({
@@ -17,7 +20,10 @@ import { DiscountPipe } from './pipes/discount.pipe';
     ItemComponent,
     HighlightPriceDirective,
     InfinteScrollDirective,
-    DiscountPipe
+    DiscountPipe,
+    HomeComponent,
+    FeedComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
