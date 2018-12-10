@@ -7,8 +7,10 @@
     <a class="p-2 text-dark link" routerLink="/cart" routerLinkActive="active">Cart</a>
     
   </nav>
-  <a class="btn btn-outline-primary" href="#"
+  <a class="btn btn-outline-primary" routerLink="/login"
   *ngIf="!user">login</a>
+  <a class="btn btn-outline-primary" routerLink="/register"
+  *ngIf="!user">Register</a>
   <div *ngIf="user">
       <!-- Hello {{user.userName}} -->
       Hello {{(userObs | async).email}}
