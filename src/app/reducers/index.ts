@@ -19,3 +19,13 @@ export const reducers: ActionReducerMap<State> = {
 
 
 export const metaReducers: MetaReducer<State>[] = !environment.production ? [] : [];
+
+export const getProducsSate =
+  createFeatureSelector<fromProducts.ProductState>('products');
+
+
+export const getAllItems =
+  createSelector(getProducsSate,
+    (state: fromProducts.ProductState) => state.data);
+
+

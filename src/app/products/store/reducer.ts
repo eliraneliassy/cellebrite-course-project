@@ -623,3 +623,7 @@ export function reducer(state = initalState
     }
     return state;
 }
+
+export const getProductsLoading = (state: ProductState) => state.loading;
+export const getProductsLoaded = (state: ProductState) => state.loaded;
+export const getProducts = (state: ProductState) => state.data;

@@ -1,3 +1,5 @@
+import { getAllItems } from './../../reducers/index';
+
 import { ShoppingCartService } from './../../services/shopping-cart.service';
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/services/products.service';
@@ -5,6 +7,7 @@ import { Item } from 'src/app/item';
 import { ActivatedRoute, Params } from '@angular/router';
 import * as fromStore from '../../products/store';
 import { Store } from '@ngrx/store';
+import { getAllProducts } from 'src/app/reducers';
 
 @Component({
   selector: 'app-feed',
@@ -37,9 +40,10 @@ export class FeedComponent implements OnInit {
     //     });
     //   });
 
-    this.store.select('products')
-    .subscribe((state: fromStore.ProductState) => {
-      this.items = state.data;
+    this.store.select(getAllItems)
+    .subscribe((items: Item[]) => {
+      console.log(items);
+      this.items = items;
     });
 
   }
