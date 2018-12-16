@@ -10,7 +10,10 @@ import { RegisterComponent } from './components/register/register.component';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'feed', component: FeedComponent, canActivate: [AuthGuard] },
+  {
+    path: 'feed', component: FeedComponent,
+    // canActivate: [AuthGuard]
+  },
   { path: 'cart', component: CartComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent }

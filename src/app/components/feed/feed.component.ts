@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/services/products.service';
 import { Item } from 'src/app/item';
 import { ActivatedRoute, Params } from '@angular/router';
+import * as fromStore from '../../products/store';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-feed',
@@ -15,23 +17,30 @@ export class FeedComponent implements OnInit {
   isLoading: boolean;
   page = 0;
 
-  constructor(private productService: ProductsService,
+  constructor(
+    // private productService: ProductsService,
+    private store: Store<fromStore.ProductState>,
     private shoppingCartService: ShoppingCartService,
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.productService.getItems(this.page)
-      .subscribe((items: Item[]) => {
-        this.items = items;
-        this.route.queryParams.subscribe((params: Params) => {
-          const query: string = params['q'];
-          if (query) {
-            this.items = this.items.filter((item) => item.description
-            .toLowerCase()
-            .includes(query.toLowerCase()));
-          }
-        });
-      });
+    // this.productService.getItems(this.page)
+    //   .subscribe((items: Item[]) => {
+    //     this.items = items;
+    //     this.route.queryParams.subscribe((params: Params) => {
+    //       const query: string = params['q'];
+    //       if (query) {
+    //         this.items = this.items.filter((item) => item.description
+    //         .toLowerCase()
+    //         .includes(query.toLowerCase()));
+    //       }
+    //     });
+    //   });
+
+    this.store.select('products')
+    .subscribe((state: fromStore.ProductState) => {
+      this.items = state.data;
+    });
 
   }
 
@@ -48,15 +57,15 @@ export class FeedComponent implements OnInit {
   }
 
   loadMore() {
-    this.page++;
-    this.isLoading = true;
-    this.productService.getItems(this.page)
-      .subscribe((newItems: Item[]) => {
-        this.items = [...this.items, ...newItems];
-        setTimeout(() => {
-          this.isLoading = false;
-        }, 500);
-      });
+    // this.page++;
+    // this.isLoading = true;
+    // this.productService.getItems(this.page)
+    //   .subscribe((newItems: Item[]) => {
+    //     this.items = [...this.items, ...newItems];
+    //     setTimeout(() => {
+    //       this.isLoading = false;
+    //     }, 500);
+    //   });
   }
 
 }
