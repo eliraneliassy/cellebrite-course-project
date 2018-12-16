@@ -1,3 +1,5 @@
+import { ProductsEffects } from './products/store/effects';
+import { EffectsModule } from '@ngrx/effects';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -43,6 +45,7 @@ import { environment } from '../environments/environment';
     HttpClientModule,
     ReactiveFormsModule,
     StoreModule.forRoot(reducers, { metaReducers }),
+    EffectsModule.forRoot([ProductsEffects]),
     !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
   providers: [],

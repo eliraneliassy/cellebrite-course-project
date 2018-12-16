@@ -7,7 +7,7 @@ import { Item } from 'src/app/item';
 import { ActivatedRoute, Params } from '@angular/router';
 import * as fromStore from '../../products/store';
 import { Store } from '@ngrx/store';
-import { getAllProducts } from 'src/app/reducers';
+
 
 @Component({
   selector: 'app-feed',
@@ -45,6 +45,8 @@ export class FeedComponent implements OnInit {
       console.log(items);
       this.items = items;
     });
+
+    this.store.dispatch(new fromStore.FetchItems());
 
   }
 
