@@ -17,7 +17,8 @@ export class FeedComponent implements OnInit {
 
   constructor(private productService: ProductsService,
     private shoppingCartService: ShoppingCartService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute) {
+  }
 
   ngOnInit() {
     this.productService.getItems(this.page)
@@ -27,8 +28,8 @@ export class FeedComponent implements OnInit {
           const query: string = params['q'];
           if (query) {
             this.items = this.items.filter((item) => item.description
-            .toLowerCase()
-            .includes(query.toLowerCase()));
+              .toLowerCase()
+              .includes(query.toLowerCase()));
           }
         });
       });

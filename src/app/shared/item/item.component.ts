@@ -2,7 +2,8 @@ import {
   Component, OnInit, Input, Output, EventEmitter,
   ChangeDetectionStrategy, OnChanges, SimpleChanges, OnDestroy, AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, DoCheck,
 } from '@angular/core';
-import { Item } from '../item';
+import { Item } from 'src/app/item';
+
 
 @Component({
   selector: 'app-item',
